@@ -40,3 +40,15 @@ do
   echo -n "Select which output you wish the .md file to be converted into:
   a) .pdf
   b) .html
+
+ if [ "$option_two" = "b" ];
+  then
+    echo "Initiating the conversion from .md to .html file. Please Standby!"
+    pandoc -s "${FILE_NAME}" --metadata title="README" -o html/"${FILE_NAME/.md/}".html
+  elif [ "$option_two" = "a" ];
+  then
+    echo "Initiating the conversion from .md to .pdf file. Please Standby!"
+    pandoc -N --quiet --variable "geometry=margin=1.2in" --variable mainfont="DejaVuSansMono" \
+      --variable sansfont="DejaVuSansMono" --variable monofont="DejaVuSansMono" \
+      --variable fontsize=12pt --variable version=2.0 "${FILE_NAME}" \
+      --pdf-engine=xelatex --toc -o pdf/"${FILE_NAME/.md/}".pdf
