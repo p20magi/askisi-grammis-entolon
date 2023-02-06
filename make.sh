@@ -52,3 +52,7 @@ do
       --variable sansfont="DejaVuSansMono" --variable monofont="DejaVuSansMono" \
       --variable fontsize=12pt --variable version=2.0 "${FILE_NAME}" \
       --pdf-engine=xelatex --toc -o pdf/"${FILE_NAME/.md/}".pdf
+      
+       fi
+  echo "The conversion was a success"
+done
